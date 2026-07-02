@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Happy Birthday, Subash 🌌</title>
+<meta name="description" content="A little universe made for you, Subash." />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Jost:wght@300;400;500;600&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ambient star canvas, sits behind everything, always on -->
+<canvas id="stars-canvas"></canvas>
+<div id="shooting-stars"></div>
+
+<!-- floating music toggle -->
+<button id="music-toggle" aria-label="Toggle music" class="glass-pill">
+  <span class="note-icon">♪</span>
+  <span class="music-bars"><i></i><i></i><i></i></span>
+</button>
+<audio id="bgm" src="assets/music/bgm.mp3" loop preload="auto"></audio>
+
+<!-- ============ WELCOME / LOADER ============ -->
+<section id="welcome" class="screen">
+  <div class="constellation-wrap">
+    <svg id="constellation" viewBox="0 0 400 300" aria-hidden="true">
+      <path id="constellation-path" d="M40,220 L90,140 L150,180 L200,80 L260,150 L320,60 L360,110"
+            fill="none" stroke="url(#lineGrad)" stroke-width="1.6" stroke-linecap="round"/>
+      <defs>
+        <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#D4AF7A"/>
+          <stop offset="100%" stop-color="#4FD6FF"/>
+        </linearGradient>
+      </defs>
+      <g id="constellation-dots"></g>
+    </svg>
+  </div>
+
+  <p class="eyebrow">a small universe, built for one person</p>
+  <h1 class="welcome-title">
+    <span class="line-reveal" id="title-line1">Somewhere among</span>
+    <span class="line-reveal" id="title-line2">a thousand stars,</span>
+    <span class="line-reveal gold-script" id="title-line3">one is yours, Subash</span>
+  </h1>
+
+  <button id="enter-btn" class="primary-btn">
+    <span>Open your sky</span>
+  </button>
+</section>
+
+<!-- ============ MAIN SITE ============ -->
+<main id="main-content" hidden>
+
+  <!-- HERO -->
+  <section class="section hero">
+    <p class="eyebrow">05 . 08 — the day the sky celebrates</p>
+    <h1 class="hero-title">
+      Happy Birthday<br/>
+      <span class="gold-script hero-name">Subash</span>
+    </h1>
+    <p class="hero-sub">Every year the world spins once around the sun.<br/>
+      This year, I just wanted it to spin a little brighter — for you.</p>
+    <a href="#gallery" class="scroll-cue" aria-label="Scroll to gallery">
+      <span></span>
+    </a>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="section gallery-section">
+    <p class="eyebrow">our archive</p>
+    <h2 class="section-title">Moments, kept safe</h2>
+    <p class="section-sub">seven frames out of a thousand — the ones I go back to the most.</p>
+
+    <div class="gallery-track" id="gallery-track">
+      <!-- filled by JS -->
+    </div>
+    <p class="gallery-hint">tap a photo to look closer</p>
+  </section>
+
+  <!-- LETTER -->
+  <section id="letter" class="section letter-section">
+    <p class="eyebrow">for you, from me</p>
+    <h2 class="section-title">A letter I mean every word of</h2>
+
+    <div class="letter-card glass-card">
+      <div class="letter-mark">✦</div>
+      <p class="letter-greeting">My Subash,</p>
+
+      <p>Happy birthday to the one person who somehow plays every role in my life at once.</p>
+
+      <p>You hold me up like a father would — steady, patient, always making sure I land
+      safely even when I don't ask you to catch me. You worry over the small things like a
+      mother would — did I eat, did I sleep, am I okay — in that quiet, relentless way that
+      only someone who truly cares even bothers to notice. You're my closest friend, the one
+      I tell everything to first, the one who makes the ordinary days feel like the good
+      part of the story. And then, in the very next minute, you're a complete kid again —
+      teasing me, making me laugh at the worst times, turning nothing into an inside joke
+      that lasts for weeks.</p>
+
+      <p>I don't think I've ever told you clearly enough: I see all of it. I see how much you
+      carry quietly and how much you give without keeping count. So today isn't just about
+      cake and candles — it's a small thank-you for every version of you that shows up for
+      me, every single day.</p>
+
+      <p>Here's to more birthdays, more inside jokes, more terrible photos we still keep,
+      and more of us.</p>
+
+      <p class="letter-signoff">Yours, always —<br/><span class="gold-script">Priya</span></p>
+    </div>
+  </section>
+
+  <!-- SECRET HEART -->
+  <section id="secret" class="section secret-section">
+    <p class="eyebrow">one last thing</p>
+    <h2 class="section-title">Open My Heart</h2>
+    <p class="section-sub">this one's locked. you'll need to actually open it.</p>
+
+    <button id="heart-btn" aria-label="Open my heart">
+      <svg viewBox="0 0 100 90" class="heart-svg">
+        <path d="M50,85 C20,60 2,38 2,20 C2,4 16,-2 28,4 C38,9 46,20 50,28 C54,20 62,9 72,4 C84,-2 98,4 98,20 C98,38 80,60 50,85 Z"/>
+      </svg>
+    </button>
+
+    <div id="secret-message" class="glass-card secret-card" hidden>
+      <p>If you're reading this, you actually opened it — of course you did, you're curious
+      like that.</p>
+      <p>This is the part I don't say out loud often: being loved by you feels like the safest
+      place I know. Whatever today brings, whatever this year brings — I'm not going
+      anywhere. Happy birthday, my favourite person.</p>
+      <p class="secret-signoff">🤍</p>
+      <button id="confetti-btn" class="primary-btn small">Celebrate</button>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>made with a lot of love, for Subash — 05.08</p>
+  </footer>
+
+</main>
+
+<canvas id="confetti-canvas"></canvas>
+
+<script src="script.js"></script>
+</body>
+</html>
